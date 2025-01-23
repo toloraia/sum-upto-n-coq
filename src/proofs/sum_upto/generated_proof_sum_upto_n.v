@@ -20,7 +20,7 @@ Section proof_sum_upto_n.
         ∃ sum_val : Z,
         arg_n ◁ₗ (n @ (int (u32))) ∗
         local_sum ◁ₗ (sum_val @ (int (u32))) ∗
-        local_i ◁ₗ (int (u32)) ∗
+        local_i ◁ₗ (i @ (int (u32))) ∗
         ⌜sum_val = (i * (i - 1)) / 2⌝ ∗
         ⌜i <= n+1⌝
     ]> $
