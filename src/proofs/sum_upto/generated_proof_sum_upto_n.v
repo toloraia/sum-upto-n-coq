@@ -1,6 +1,7 @@
 From refinedc.typing Require Import typing.
 From refinedc.project.sum_upto.src.sum_upto Require Import generated_code.
 From refinedc.project.sum_upto.src.sum_upto Require Import generated_spec.
+From refinedc.project.sum_upto Require Import my_lemmas.
 Set Default Proof Using "Type".
 
 (* Generated from [src/sum_upto.c]. *)
@@ -33,6 +34,7 @@ Section proof_sum_upto_n.
     - repeat liRStep; liShow.
       all: print_typesystem_goal "sum_upto_n" "#1".
     Unshelve. all: unshelve_sidecond; sidecond_hook; prepare_sideconditions; normalize_and_simpl_goal; try solve_goal; unsolved_sidecond_hook.
+    all: try by apply: final_equality; solve_goal.
     all: print_sidecondition_goal "sum_upto_n".
     Unshelve. all: try done; try apply: inhabitant; print_remaining_shelved_goal "sum_upto_n".
   Qed.
